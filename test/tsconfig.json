@@ -1,0 +1,39 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es6",
+		"moduleResolution": "node",
+		"sourceMap": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": false,
+		"experimentalDecorators": true,
+		"outDir": ".output",
+		"baseUrl": "../.",
+		"typeRoots": [
+			"typings",
+			"typings/*"
+		],
+		"paths": {
+            "*": [
+                "node_modules/*",
+                "typings/*"
+            ]
+		},
+		"lib": [
+			"es2017", "esnext.asynciterable", "dom"
+		],
+		"types": [
+			"chai",
+			"mocha",
+			"node"
+		]
+	},
+	"include": [
+		"test/*",
+		"test/**/*",
+		"**/*"
+	],
+	"exclude": [
+        "node_modules/**"
+    ]
+}

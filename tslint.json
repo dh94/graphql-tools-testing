@@ -1,0 +1,36 @@
+{
+	"extends": "tslint:recommended",
+	"jsRules": {
+		"quotemark":[
+			true,
+			"single",
+			"double",
+			"avoid-escape"
+		]
+	},
+	"rules": {
+		"interface-name": [false, "never-prefix"],
+		"curly": false,
+		"no-unused-expression": false,
+		"max-line-length": [
+			true, 160
+		],
+		"arrow-parens": false,
+		"indent": [
+			true, "tabs"
+		],
+		"no-console":false,
+		"quotemark":[
+			"single",
+			"double",
+			"avoid-escape"
+		],
+		"no-trailing-whitespace": [
+			false
+		],
+		"ordered-imports": [false],
+		"object-literal-sort-keys": [
+			false
+		]
+	}
+}
