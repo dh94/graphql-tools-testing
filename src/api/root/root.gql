@@ -1,5 +1,5 @@
 type Query {
-    _blank: Boolean
+    _blank(id: ID!): Boolean
 }
 
 type Mutation {

@@ -7,12 +7,27 @@
     "postinstall": "npm run build",
     "start": "cross-env NODE_ENV=development npm run serve",
     "serve": "./node_modules/.bin/nodemon --exec \"npm run build && node\" ./dist/index.js -e ts,gql,graphql",
-    "build": "npm run build-ts && npm run tslint && npm run copy-static-assets",
+    "build": "npm run build-ts && npm run copy-static-assets",
     "build-ts": "tsc || exit 1",
     "clean": "shx rm -r dist",
     "tslint": "tslint -c tslint.json -p tsconfig.json --format stylish || exit 1",
     "copy-static-assets": "node copyStaticAssets.js",
-    "test": "cross-env TS_NODE_PROJECT=test/tsconfig.json NODE_ENV=test mocha test/**/*.test.ts"
+    "update-schema": "npm run build && node ./dist/update-local-schema.js",
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   },
   "author": "",
   "license": "ISC",
@@ -32,20 +47,19 @@
     "typescript": "^2.7.2"
   },
   "devDependencies": {
-    "@types/chai": "^4.0.4",
     "@types/express": "^4.0.37",
     "@types/graphql": "^0.12.4",
+    "@types/jest": "^22.2.3",
     "@types/lodash": "^4.14.78",
-    "@types/mocha": "^2.2.42",
     "@types/node": "^9.4.6",
     "@types/supertest": "^2.0.3",
-    "chai": "^4.1.1",
     "cpx": "^1.5.0",
     "cross-env": "^5.0.5",
-    "mocha": "^3.5.0",
+    "jest": "^22.4.3",
     "nodemon": "^1.11.0",
     "shx": "^0.2.2",
     "supertest": "^3.0.0",
+    "ts-jest": "^22.4.4",
     "ts-node": "^3.3.0",
     "tslint": "^5.7.0"
   }

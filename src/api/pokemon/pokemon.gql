@@ -1,0 +1,41 @@
+type Pokemon {
+  id: ID!
+  name: String
+  weight: PokemonDimension
+  height: PokemonDimension
+  types: [PokemonType]!
+  resistant: [PokemonType]!
+  weaknesses: [PokemonType]!
+  evolutions: [Pokemon]!
+}
+
+type PokemonDimension {
+  minimum: String
+  maximum: String
+}
+
+enum PokemonType {
+  Normal
+  Fire
+  Water
+  Fighting
+  Grass
+  Flying
+  Poison
+  Electric
+  Ground
+  Psychic
+  Rock
+  Ice
+  Bug
+  Dragon
+  Ghost
+  Dark
+  Steel
+  Fairy
+}
+
+extend type Query {
+  pokemons(first: Int!): [Pokemon]
+  pokemon(id: String, name: String): Pokemon
+}

@@ -1,7 +1,8 @@
 import { Request } from 'express';
+import { PokemonConnector } from './pokemon/pokemon.connector';
 
-// tslint:disable-next-line:no-empty-interface
-export interface Connectors {	
+export interface Connectors {
+	pokemon: PokemonConnector;
 }
 
 export interface GraphQLContext {
